@@ -13,7 +13,6 @@ pip install tensorflow pandas scikit-learn numpy
 - `config.py` -- features, hyperparams, paths, process definitions
 - `model.py` -- transformer architecture, GatherLayer, focal loss
 - `model_dnn.py` -- feedforward DNN architecture
-- `train.py` -- single-split training loop (used internally by kfold)
 - `kfold.py` -- k-fold CV with event-ID grouping
 - `evaluate.py` -- plotting and evaluation from prediction files
 
