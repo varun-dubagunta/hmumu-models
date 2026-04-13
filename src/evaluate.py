@@ -57,7 +57,7 @@ def _quantile_edges(signal_df, num_bins):
     return wq.quantile(np.linspace(0, 1, num_bins + 1), return_pandas=False)
 
 
-# ── 1. Uniform histogram ─────────────────────────────────────────────────────
+# Uniform histogram 
 
 def plot_weighted_histogram(y, output_dir, num_bins=50):
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -75,7 +75,7 @@ def plot_weighted_histogram(y, output_dir, num_bins=50):
     _save(fig, "hist_weighted_uniform.png", output_dir)
 
 
-# ── 2. Quantile histogram ────────────────────────────────────────────────────
+#  Quantile histogram 
 
 def plot_quantile_histogram(y, output_dir, num_bins=12):
     signal = y[y["process"] == VBF_PROCESS]
@@ -104,7 +104,7 @@ def plot_quantile_histogram(y, output_dir, num_bins=12):
     _save(fig, "hist_weighted_quantile.png", output_dir)
 
 
-# ── 3. CMS stack ─────────────────────────────────────────────────────────────
+# CMS stack 
 
 def plot_cms_stack(y, output_dir, num_bins=12):
     signal = y[y["process"] == VBF_PROCESS]
@@ -172,7 +172,7 @@ def plot_cms_stack(y, output_dir, num_bins=12):
     _save(fig, "hist_cms_stack.png", output_dir)
 
 
-# ── 4. Sensitivity scan ───────────────────────────────────────────────────────
+#Sensitivity scan 
 
 def plot_sensitivity_scan(y, output_dir, bin_range=(5, 100), step=2, window=5):
     signal = y[y["process"] == VBF_PROCESS]
@@ -230,7 +230,7 @@ def plot_sensitivity_scan(y, output_dir, bin_range=(5, 100), step=2, window=5):
     return opt_bins
 
 
-# ── 5. ROC ────────────────────────────────────────────────────────────────────
+# ROC 
 
 def plot_roc(y, output_dir, tag=""):
     y2 = y.copy()
@@ -256,7 +256,7 @@ def plot_roc(y, output_dir, tag=""):
     _save(fig, fname, output_dir)
 
 
-# ── 6. Per-process proba ─────────────────────────────────────────────────────
+# Per-process proba
 
 def plot_per_process_proba(predictions_df, y, process_name, output_dir, num_bins=30):
     subset = predictions_df[predictions_df["Actual_Process"] == process_name]
@@ -283,7 +283,7 @@ def plot_per_process_proba(predictions_df, y, process_name, output_dir, num_bins
     _save(fig, f"proba_dist_{process_name}.png", output_dir)
 
 
-# ── Entry point ───────────────────────────────────────────────────────────────
+# Entry point
 
 def main():
     parser = argparse.ArgumentParser()
